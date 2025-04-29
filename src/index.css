@@ -13,3 +13,12 @@ body,
 .btn-buscador {
   cursor: pointer;
 }
+
+.menuMobile {
+  font-weight: 500;
+}
+
+.logo span {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 20px;
+}
