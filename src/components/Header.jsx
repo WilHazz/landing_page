@@ -4,6 +4,7 @@ import { useState } from "react";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(true); // true = oscuro
+  const [searchOpen, setSearchOpen] = useState(false); //abre el buscardor en version mobile
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -11,7 +12,7 @@ export default function Header() {
 
   return (
     <header
-      className={`py-4 px6 ${
+      className={`py-4 px-4 ${
         darkMode ? "bg-gray-800  text-white" : "bg-white text-gray-800"
       }`}
     >
@@ -21,7 +22,9 @@ export default function Header() {
         <div className="flex items-center space-x-6 text-white text-1xl">
           {/* Botón hamburguesa en Mobile */}
           <button
-            className="sm:hidden cursor-pointer"
+            className={`sm:hidden cursor-pointer ${
+              darkMode ? "text-white" : "text-gray-800"
+            }`}
             onClick={() => setMenuOpen(!menuOpen)}
           >
             <MenuIcon size={28} />
@@ -65,6 +68,7 @@ export default function Header() {
 
         {/* Buscador */}
         <div className="flex items-center gap-4 flex-grow justify-center sm:justify-end">
+          {/* Boton search para Desktop */}
           <div
             className={`hidden sm:flex items-center rounded-full px-4 py-1 w-64 ${
               darkMode ? "bg-white" : "bg-gray-100"
@@ -72,13 +76,22 @@ export default function Header() {
           >
             <input
               type="text"
-              placeholder="Search"
+              placeholder="Buscar.."
               className="flex-grow outline-none text-sm placeholder-gray-600"
             />
             <button className="btn-buscador text-white bg-orange-500 rounded-full p-1">
               🔍
             </button>
           </div>
+          {/* boton lupa mobile */}
+          <button
+            className={`btn_mb sm:hidden text-white bg-orange-500 p-2 rounded-full ${
+              darkMode ? "" : "text-white"
+            }`}
+            onClick={() => setSearchOpen(!searchOpen)}
+          >
+            🔍
+          </button>
 
           {/* Carrito de comparas */}
           <div
@@ -97,22 +110,51 @@ export default function Header() {
         {/* Boton para cambiar modo Dark/White */}
         <button
           onClick={toggleDarkMode}
-          className="p-2 rounded-full hover:bg-gray-700 transition-all"
+          className="p-2 rounded-full hover:bg-amber-500 transition-all"
         >
           {darkMode ? <SunMedium size={24} /> : <Moon siza={24} />}
         </button>
 
         {/* Logo */}
         <div
-          className={`logo text-sm ml-2 cursor-pointer hover:text-amber-400 ${darkMode} ? "text-white" : "text-gray-800"`}
+          className={`logo text-sm ml-2 cursor-pointer hover:text-amber-500 ${darkMode} ? "text-white" : "text-gray-800"`}
         >
           <span>Tu Ropa</span>
         </div>
       </div>
 
+      {/* Input de búsqueda en mobile */}
+      {searchOpen && (
+        <div
+          className={`sm:hidden px-4 py-2 ${
+            darkMode ? "bg-gray-800" : "bg-white"
+          }`}
+        >
+          <input
+            type="text"
+            placeholder="Buscar..."
+            className={`w-full p-2 rounded-full border ${
+              darkMode
+                ? "bg-gray-700 text-white border-gray-600 placeholder-gray-400"
+                : "bg-gray-100 text-gray-800 border-gray-300 placeholder-gray-500"
+            }`}
+            // con onKeyDown hago que se cierre cuando entecleo enter
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                setSearchOpen(false);
+              }
+            }}
+          />
+        </div>
+      )}
+
       {/* Menú desplegable en mobile */}
       {menuOpen && (
-        <div className="menuMobile sm:hidden flex flex-col items-center bg-gray-800 py-2 text-white">
+        <div
+          className={`sm:hidden flex flex-col items-center py-2 ${
+            darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-800"
+          }`}
+        >
           <a href="#home" className="py-2 hover:text-amber-300">
             Inicio
           </a>

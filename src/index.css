@@ -10,7 +10,8 @@ body,
   font-family: cursive;
 }
 
-.btn-buscador {
+.btn-buscador,
+.btn_mb {
   cursor: pointer;
 }
 
