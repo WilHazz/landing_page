@@ -10,6 +10,20 @@ body,
   font-family: cursive;
 }
 
+@font-face {
+  font-family: "Maghody";
+  src: url("/public/Fonts/Maghody.ttf") format(".ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Maxigo";
+  src: url("/public/Fonts/Maxigo-RpW.ttf") format(".ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
 .btn-buscador,
 .btn_mb {
   cursor: pointer;
@@ -20,6 +34,6 @@ body,
 }
 
 .logo span {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: Maghody, "Courier New", Courier, monospace;
   font-size: 20px;
 }

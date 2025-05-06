@@ -71,7 +71,7 @@ export default function Header() {
           {/* Boton search para Desktop */}
           <div
             className={`hidden sm:flex items-center rounded-full px-4 py-1 w-64 ${
-              darkMode ? "bg-white" : "bg-gray-100"
+              darkMode ? "bg-white text-gray-800" : "bg-gray-100"
             }  `}
           >
             <input
@@ -138,7 +138,7 @@ export default function Header() {
                 ? "bg-gray-700 text-white border-gray-600 placeholder-gray-400"
                 : "bg-gray-100 text-gray-800 border-gray-300 placeholder-gray-500"
             }`}
-            // con onKeyDown hago que se cierre cuando entecleo enter
+            // con onKeyDown hago que se cierre cuando tecleo enter
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 setSearchOpen(false);
@@ -151,20 +151,20 @@ export default function Header() {
       {/* Menú desplegable en mobile */}
       {menuOpen && (
         <div
-          className={`sm:hidden flex flex-col items-center py-2 ${
+          className={`sm:hidden flex flex-col items-center py-2${
             darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-800"
           }`}
         >
-          <a href="#home" className="py-2 hover:text-amber-300">
+          <a href="#home" className="py-2 hover:text-amber-500">
             Inicio
           </a>
-          <a href="#gallery" className="py-2 hover:text-amber-300">
+          <a href="#gallery" className="py-2 hover:text-amber-500">
             Galería
           </a>
-          <a href="#shop" className="py-2 hover:text-amber-300">
+          <a href="#shop" className="py-2 hover:text-amber-500">
             Tiendas
           </a>
-          <a href="#contact" className="py-2 hover:text-amber-300">
+          <a href="#contact" className="py-2 hover:text-amber-500">
             Contacto
           </a>
         </div>

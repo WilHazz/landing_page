@@ -1,5 +1,6 @@
 import "./App.css";
 import Layout from "./layout/Layout";
+import Hero from "./sections/Hero";
 
 function App() {
   return (
@@ -7,11 +8,12 @@ function App() {
       <div>
         <Layout>
           {/* Secciones de Hero, productos etc */}
-          <div className="text-center">
+          <Hero />
+          {/* <div className="text-center">
             <h2 className="text-3xl font-semibold">
               Bienvenido a nuestra tienda
             </h2>
-          </div>
+          </div> */}
         </Layout>
       </div>
     </>
