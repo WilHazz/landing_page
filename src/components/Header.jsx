@@ -111,7 +111,7 @@ export default function Header({ darkMode, setDarkMode }) {
           onClick={toggleDarkMode}
           className="p-2 rounded-full hover:bg-amber-500 transition-all"
         >
-          {darkMode ? <SunMedium size={24} /> : <Moon siza={24} />}
+          {darkMode ? <Moon size={24} /> : <SunMedium size={24} />}
         </button>
 
         {/* Logo */}

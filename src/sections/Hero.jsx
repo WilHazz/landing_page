@@ -52,7 +52,7 @@ export default function Hero({ darkMode }) {
           <div className="relative">
             <div className="w-[300px] h-[300px] md:w-[400px] md:h-[400px] rounded-full overflow-hidden border-4 border-orange-500 p-2 relative">
               <img
-                src="/images/images.jpg"
+                src="/images/img2.jpg"
                 alt="Moda"
                 className="w-full h-full object-cover rounded-full"
               />
