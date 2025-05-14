@@ -1,19 +1,20 @@
+import { useState } from "react";
 import "./App.css";
 import Layout from "./layout/Layout";
 import Hero from "./sections/Hero";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
   return (
     <>
-      <div>
-        <Layout>
+      <div
+        className={
+          darkMode ? "dark bg-gray-800 text-white" : "bg-white text-gray-800"
+        }
+      >
+        <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
           {/* Secciones de Hero, productos etc */}
-          <Hero />
-          {/* <div className="text-center">
-            <h2 className="text-3xl font-semibold">
-              Bienvenido a nuestra tienda
-            </h2>
-          </div> */}
+          <Hero darkMode={darkMode} />
         </Layout>
       </div>
     </>

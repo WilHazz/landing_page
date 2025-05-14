@@ -1,9 +1,8 @@
 import { MenuIcon, Moon, ShoppingCart, SunMedium } from "lucide-react";
 import { useState } from "react";
 
-export default function Header() {
+export default function Header({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(true); // true = oscuro
   const [searchOpen, setSearchOpen] = useState(false); //abre el buscardor en version mobile
 
   const toggleDarkMode = () => {
