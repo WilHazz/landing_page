@@ -12,14 +12,28 @@ body,
 
 @font-face {
   font-family: "Maghody";
-  src: url("/public/Fonts/Maghody.ttf") format(".ttf");
+  src: url("/Fonts/Maghody.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Maxigo";
-  src: url("/public/Fonts/Maxigo-RpW.ttf") format(".ttf");
+  src: url("/Fonts/Maxigo-RpW.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HarryPotter";
+  src: url("/Fonts/HARRYPOTTER.TTF") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "StarWars";
+  src: url("/Fonts/StarWars.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
 }
@@ -36,4 +50,13 @@ body,
 .logo span {
   font-family: Maghody, "Courier New", Courier, monospace;
   font-size: 20px;
+}
+
+.font-harrypotter {
+  font-family: HarryPotter, serif;
+  font-size: 30px;
+}
+
+.font-starwars {
+  font-family: "StarWars", sans-serif;
 }

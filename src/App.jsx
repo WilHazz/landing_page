@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Layout from "./layout/Layout";
 import Hero from "./sections/Hero";
+import Characters from "./components/characters";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -15,6 +16,7 @@ function App() {
         <Layout darkMode={darkMode} setDarkMode={setDarkMode}>
           {/* Secciones de Hero, productos etc */}
           <Hero darkMode={darkMode} />
+          <Characters darkMode={darkMode} />
         </Layout>
       </div>
     </>
