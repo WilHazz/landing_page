@@ -1,5 +1,6 @@
 import { MenuIcon, Moon, ShoppingCart, SunMedium } from "lucide-react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function Header({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -30,38 +31,26 @@ export default function Header({ darkMode, setDarkMode }) {
           </button>
           {/* Menú de navegación */}
           <nav className="hidden sm:flex space-x-6 text-white text-1xl">
-            <a
-              href="#home"
-              className={`hover:text-amber-500 ${
-                darkMode ? "text-white" : "text-gray-800"
-              }`}
-            >
-              Inicio
-            </a>
-            <a
-              href="#gallery"
-              className={`hover:text-amber-500 ${
-                darkMode ? "text-white" : "text-gray-800"
-              }`}
-            >
-              Galería
-            </a>
-            <a
-              href="#shop"
-              className={`hover:text-amber-500 ${
-                darkMode ? "text-white" : "text-gray-800"
-              }`}
-            >
-              Tiendas
-            </a>
-            <a
-              href="#contact"
-              className={`hover:text-amber-500 ${
-                darkMode ? "text-white" : "text-gray-800"
-              }`}
-            >
-              Contacto
-            </a>
+            {[
+              { to: "/", label: "Inicio" },
+              { to: "/galeria", label: "Galeria" },
+              { to: "/tiendas", label: "Tiendas" },
+              { to: "/contacto", label: "Contacto" },
+            ].map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) => {
+                  const baseColor = darkMode ? "text-white" : "text-gray-800";
+                  const activeColor = isActive
+                    ? "text-amber-500 font-bold"
+                    : "";
+                  return `${baseColor} ${activeColor} hover:text-amber-500 transition-colors duration-300`;
+                }}
+              >
+                {link.label}
+              </NavLink>
+            ))}
           </nav>
         </div>
 
@@ -154,18 +143,25 @@ export default function Header({ darkMode, setDarkMode }) {
             darkMode ? "bg-gray-700 text-white" : "bg-gray-100 text-gray-800"
           }`}
         >
-          <a href="#home" className="py-2 hover:text-amber-500">
-            Inicio
-          </a>
-          <a href="#gallery" className="py-2 hover:text-amber-500">
-            Galería
-          </a>
-          <a href="#shop" className="py-2 hover:text-amber-500">
-            Tiendas
-          </a>
-          <a href="#contact" className="py-2 hover:text-amber-500">
-            Contacto
-          </a>
+          {[
+            { to: "/", label: "Inicio" },
+            { to: "/galeria", label: "Galería" },
+            { to: "/tiendas", label: "Tiendas" },
+            { to: "/contacto", label: "Contacto" },
+          ].map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              onClick={() => setMenuOpen(false)} // Para cerrar el menú al hacer clic
+              className={({ isActive }) => {
+                const base = darkMode ? "text-white" : "text-gray-800";
+                const active = isActive ? "text-amber-500 font-bold" : "";
+                return `py-2 ${base} ${active} hover:text-amber-500 transition-colors duration-300`;
+              }}
+            >
+              {link.label}
+            </NavLink>
+          ))}
         </div>
       )}
     </header>
