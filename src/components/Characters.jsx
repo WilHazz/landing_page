@@ -3,10 +3,10 @@
 export default function Characters({ darkMode }) {
   const personajes = [
     { id: 1, nombre: "Star Wars", clase: "font-starwars", path: "/starwars" },
-    { id: 2, nombre: "Dragon Ball Z", clase: "" },
+    { id: 2, nombre: "Dragon Ball Z", clase: "font-dragonBallZ" },
     { id: 3, nombre: "Harry Potter", clase: "font-harrypotter" },
-    { id: 4, nombre: "Looney Tunes", imagen: "" },
-    { id: 5, nombre: "Rick and Morty", imagen: "" },
+    { id: 4, nombre: "Looney Tunes", clase: "font-LonneyTunes" },
+    { id: 5, nombre: "Rick and Morty", clase: "font-RickandMorty" },
   ];
 
   return (

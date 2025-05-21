@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./layout/Layout";
 import Inicio from "./pages/Inicio";
@@ -9,7 +9,16 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  //Usar el LocalStorage para darkMode y terner persistencia al cambio de Dark y Luz
+  const [darkMode, setDarkMode] = useState(() => {
+    const storedMode = localStorage.getItem("darkMode");
+    return storedMode === "true";
+  });
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
+
   return (
     <Router>
       <div

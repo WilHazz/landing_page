@@ -38,6 +38,21 @@ body,
   font-style: normal;
 }
 
+@font-face {
+  font-family: "DragonBallZ";
+  src: url("/Fonts/Saiyan-Sans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "LooneyTunes";
+  src: url("/public/Fonts/LooneyTunes.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RickandMorty";
+  src: url("/Fonts/RickandMorty.ttf") format("truetype");
+}
+
 .btn-buscador,
 .btn_mb {
   cursor: pointer;
@@ -59,4 +74,17 @@ body,
 
 .font-starwars {
   font-family: "StarWars", sans-serif;
+}
+
+.font-dragonBallZ {
+  font-family: "DragonBallZ", sans-serif;
+  font-size: 30px;
+}
+
+.font-LonneyTunes {
+  font-family: "LooneyTunes", sans-serif;
+}
+
+.font-RickandMorty {
+  font-family: "RickandMorty", sans-serif;
 }
