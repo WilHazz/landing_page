@@ -45,7 +45,7 @@ body,
 
 @font-face {
   font-family: "LooneyTunes";
-  src: url("/public/Fonts/LooneyTunes.ttf") format("truetype");
+  src: url("/Fonts/LooneyTunes.ttf") format("truetype");
 }
 
 @font-face {

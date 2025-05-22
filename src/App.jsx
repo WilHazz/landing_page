@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./layout/Layout";
-import Inicio from "./pages/Inicio";
 import Galeria from "./pages/Galeria";
 import Tiendas from "./pages/Tiendas";
 import Contacto from "./pages/Contacto";
+import Starwars from "./pages/starwars";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   //Usar el LocalStorage para darkMode y terner persistencia al cambio de Dark y Luz
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div
         className={
           darkMode ? "dark bg-gray-800 text-white" : "bg-white text-gray-800"
@@ -30,21 +32,17 @@ function App() {
           <Routes>
             {/* Aqui creamos las rutas*/}
             <Route path="/" element={<Home darkMode={darkMode} />} />
-            <Route path="/" element={<Inicio darkMode={darkMode} />} />
             <Route path="/galeria" element={<Galeria darkMode={darkMode} />} />
             <Route path="/tiendas" element={<Tiendas darkMode={darkMode} />} />
             <Route
               path="/contacto"
               element={<Contacto darkMode={darkMode} />}
             />
-            {/* <Route
-              path="/starwars"
-              element={<StarWars darkMode={darkMode} />}
-            />
+            {/* Ruta de personajes y colaboraciones */}
             <Route
-              path="/harrypotter"
-              element={<HarryPotter darkMode={darkMode} />}
-            /> */}
+              path="/personajes/starwars"
+              element={<Starwars darkMode={darkMode} />}
+            />
           </Routes>
         </Layout>
       </div>
