@@ -6,7 +6,7 @@ export default function Layout({ children, darkMode, setDarkMode }) {
     <>
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
       <main className="min-h-screen">{children}</main>
-      <Footer />
+      <Footer darkMode={darkMode} />
     </>
   );
 }
