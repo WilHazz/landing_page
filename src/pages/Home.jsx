@@ -1,6 +1,6 @@
 // Aqui vamos a contener las paginas Hero y character
 
-import Characters from "../components/characters";
+import Characters from "../components/Characters";
 import Hero from "../sections/Hero";
 import Calzado from "../components/Calzado";
 
