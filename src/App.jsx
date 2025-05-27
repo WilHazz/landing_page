@@ -4,7 +4,7 @@ import Layout from "./layout/Layout";
 import Galeria from "./pages/Galeria";
 import Tiendas from "./pages/Tiendas";
 import Contacto from "./pages/Contacto";
-import Starwars from "./pages/starwars";
+import Starwars from "./pages/Starwars";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import ScrollToTop from "./components/ScrollToTop";
