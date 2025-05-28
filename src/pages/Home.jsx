@@ -3,6 +3,7 @@
 import Characters from "../components/Characters";
 import Hero from "../sections/Hero";
 import Calzado from "../components/Calzado";
+import Products from "../components/Products";
 
 export const Home = ({ darkMode }) => {
   return (
@@ -10,6 +11,7 @@ export const Home = ({ darkMode }) => {
       <Hero darkMode={darkMode} />
       <Characters darkMode={darkMode} />
       <Calzado darkMode={darkMode} />
+      <Products darkMode={darkMode} />
     </>
   );
 };
