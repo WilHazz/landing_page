@@ -98,7 +98,7 @@ export default function Header({ darkMode, setDarkMode }) {
         {/* Boton para cambiar modo Dark/White */}
         <button
           onClick={toggleDarkMode}
-          className="p-2 rounded-full hover:bg-amber-500 transition-all"
+          className="cursor-pointer p-2 rounded-full hover:bg-amber-500 transition-all"
         >
           {darkMode ? <Moon size={24} /> : <SunMedium size={24} />}
         </button>

@@ -7,7 +7,7 @@ export default function Footer({ darkMode }) {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 py-6 text-center text-sm">
-          ©{new Date().getFullYear()} NombreEmpres. Todos los derechos
+          ©{new Date().getFullYear()} LandingPage. Todos los derechos
           reservados.
         </div>
       </footer>
