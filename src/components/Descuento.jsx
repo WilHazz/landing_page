@@ -5,78 +5,103 @@ const productosDesc = [
   {
     id: 1,
     nombre: "Camisa Oversize",
-    tipo: "Camisa",
+    tipo: "Superior",
     imagen: "/images/discount/Camisa-Oversize.jpg",
   },
   {
     id: 2,
     nombre: "Pantalón Jogger",
-    tipo: "pantalon",
-    imagen: "/images/discount/camisa1.jpg",
+    tipo: "Inferior",
+    imagen: "/images/discount/pantalon-Jogger.jpg",
   },
   {
     id: 3,
     nombre: "Short Deportivo",
-    tipo: "short",
-    imagen: "/images/discount/camisa1.jpg",
+    tipo: "Inferior",
+    imagen: "/images/discount/Short-Deportivo.jpg",
   },
   {
     id: 4,
-    nombre: "Camisa Oversize",
-    tipo: "Camisa",
-    imagen: "/images/discount/camisa1.jpg",
+    nombre: "Chaqueta de Cuero",
+    tipo: "Superior",
+    imagen: "/images/discount/Chaqueta-Cuero.jpg",
   },
   {
     id: 5,
-    nombre: "Camisa Oversize",
-    tipo: "Camisa",
-    imagen: "/images/discount/Camisa-Oversize.jpg",
+    nombre: "Pantalon Formal para Mujer",
+    tipo: "Superior",
+    imagen: "/images/discount/pantalon-mujer.jpg",
   },
   {
     id: 6,
-    nombre: "Camisa Oversize",
-    tipo: "Camisa",
-    imagen: "/images/discount/Camisa-Oversize.jpg",
+    nombre: "Pantalon Hombre",
+    tipo: "Inferior",
+    imagen: "/images/discount/Pantalon-hombre.jpg",
   },
   {
     id: 7,
-    nombre: "Camisa Oversize",
-    tipo: "Camisa",
-    imagen: "/images/discount/Camisa-Oversize.jpg",
+    nombre: "Camisa para Mujer",
+    tipo: "Superior",
+    imagen: "/images/discount/Camisa-mujer.jpg",
   },
   {
     id: 8,
-    nombre: "Camisa Oversize",
-    tipo: "Camisa",
-    imagen: "/images/discount/Camisa-Oversize.jpg",
+    nombre: "Pantalon Formal Hombre",
+    tipo: "Inferior",
+    imagen: "/images/discount/pantalon-formal-hombre.jpg",
   },
   {
     id: 9,
-    nombre: "Camisa Oversize",
-    tipo: "Camisa",
-    imagen: "/images/discount/Camisa-Oversize.jpg",
+    nombre: "Camisa Formal para Hombre",
+    tipo: "Superior",
+    imagen: "/images/discount/Camisa-hombre-formal.jpg",
   },
   {
     id: 10,
-    nombre: "Camisa Oversize",
-    tipo: "Camisa",
-    imagen: "/images/discount/Camisa-Oversize.jpg",
+    nombre: "Camisa para entrenar Hombre",
+    tipo: "Superior",
+    imagen: "/images/discount/Camisa-Gym-Hombre.jpg",
+  },
+  {
+    id: 11,
+    nombre: "Short Deportivo",
+    tipo: "Inferior",
+    imagen: "/images/discount/Short-Deportivo2.jpg",
+  },
+  {
+    id: 12,
+    nombre: "Short de Jean para Mujer",
+    tipo: "Inferior",
+    imagen: "/images/discount/short-jean-para-mujer.jpg",
   },
 ];
 
 export default function Descuento({ darkMode }) {
   const [startIndex, setStartIndex] = useState(0);
 
+  const visibleCount = 5;
+
   const handleNext = () => {
-    setStartIndex((prev) => (prev + 1) % productosDesc.length);
+    if (startIndex + visibleCount >= productosDesc.length) {
+      setStartIndex(0); // sirve para reiniciar desde el principio
+    } else {
+      setStartIndex(startIndex + 1);
+    }
+
+    // setStartIndex((prev) => (prev + 1) % productosDesc.length);
   };
 
   const handlePrev = () => {
-    setStartIndex((prev) => (prev === 0 ? productosDesc.length - 1 : prev - 1));
+    if (startIndex === 0) {
+      setStartIndex(Math.max(productosDesc.length - visibleCount, 0));
+    } else {
+      setStartIndex(startIndex - 1);
+    }
+    // setStartIndex((prev) => (prev === 0 ? productosDesc.length - 1 : prev - 1));
   };
 
   const getTallas = (tipo) => {
-    if (tipo === "Camisa") return ["S", "M", "L", "XL"];
+    if (tipo === "Superior") return ["S", "M", "L", "XL"];
     return ["04", "06", "08", "10", "14"];
   };
 
