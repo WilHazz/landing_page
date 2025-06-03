@@ -8,72 +8,96 @@ const productosDesc = [
     nombre: "Camisa Oversize",
     tipo: "Superior",
     imagen: "/images/discount/Camisa-Oversize.jpg",
+    precioAntes: "$ 170,900",
+    precioActual: "$ 58,950",
   },
   {
     id: 2,
     nombre: "Pantalón Jogger",
     tipo: "Inferior",
     imagen: "/images/discount/pantalon-Jogger.jpg",
+    precioAntes: "$ 89,950",
+    precioActual: "$ 75,950",
   },
   {
     id: 3,
     nombre: "Short Deportivo",
     tipo: "Inferior",
     imagen: "/images/discount/Short-Deportivo.jpg",
+    precioAntes: "$ 84,350",
+    precioActual: "$ 46,950",
   },
   {
     id: 4,
     nombre: "Chaqueta de Cuero",
     tipo: "Superior",
     imagen: "/images/discount/Chaqueta-Cuero.jpg",
+    precioAntes: "$ 240,250",
+    precioActual: "$ 130,950",
   },
   {
     id: 5,
     nombre: "Pantalon Formal para Mujer",
     tipo: "Superior",
     imagen: "/images/discount/pantalon-mujer.jpg",
+    precioAntes: "$ 89,550",
+    precioActual: "$ 63,950",
   },
   {
     id: 6,
     nombre: "Pantalon Hombre",
     tipo: "Inferior",
     imagen: "/images/discount/Pantalon-hombre.jpg",
+    precioAntes: "$ 90,950",
+    precioActual: "$ 50,950",
   },
   {
     id: 7,
     nombre: "Camisa para Mujer",
     tipo: "Superior",
     imagen: "/images/discount/Camisa-mujer.jpg",
+    precioAntes: "$ 100,950",
+    precioActual: "$ 60,950",
   },
   {
     id: 8,
     nombre: "Pantalon Formal Hombre",
     tipo: "Inferior",
     imagen: "/images/discount/pantalon-formal-hombre.jpg",
+    precioAntes: "$ 90,950",
+    precioActual: "$ 60,950",
   },
   {
     id: 9,
     nombre: "Camisa Formal para Hombre",
     tipo: "Superior",
     imagen: "/images/discount/Camisa-hombre-formal.jpg",
+    precioAntes: "$ 75,950",
+    precioActual: "$ 50,950",
   },
   {
     id: 10,
     nombre: "Camisa para entrenar Hombre",
     tipo: "Superior",
     imagen: "/images/discount/Camisa-Gym-Hombre.jpg",
+    precioAntes: "$ 75,950",
+    precioActual: "$ 50,950",
   },
   {
     id: 11,
     nombre: "Short Deportivo",
     tipo: "Inferior",
     imagen: "/images/discount/Short-Deportivo2.jpg",
+    precioAntes: "$ 45,950",
+    precioActual: "$ 23,950",
   },
   {
     id: 12,
     nombre: "Short de Jean para Mujer",
     tipo: "Inferior",
     imagen: "/images/discount/short-jean-para-mujer.jpg",
+    precioAntes: "$ 70,950",
+    precioActual: "$ 50,950",
   },
 ];
 
@@ -185,8 +209,17 @@ export default function Descuento({ darkMode }) {
                     </button>
                   </div>
                 </div>
-
-                <p className="mt-2 text-center font-semibold">{prod.nombre}</p>
+                <div className="mt-2 text-center">
+                  <p className="font-semibold">{prod.nombre}</p>
+                  <div className="flex items-center justify-center gap-2 mt-1">
+                    <span className="text-sm text-gray-500 line-through">
+                      {prod.precioAntes}
+                    </span>
+                    <span className="text-sm text-red-600 font-bold">
+                      {prod.precioActual}
+                    </span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
