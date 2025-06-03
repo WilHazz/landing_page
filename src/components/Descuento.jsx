@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useSwipeable } from "react-swipeable";
 
 const productosDesc = [
   {
@@ -105,6 +106,13 @@ export default function Descuento({ darkMode }) {
     return ["04", "06", "08", "10", "14"];
   };
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => handleNext(),
+    onSwipedRight: () => handlePrev(),
+    preventDefaultTouchmoveEvent: true,
+    trackTouch: true,
+  });
+
   return (
     <section
       className={`py-10 ${
@@ -125,7 +133,10 @@ export default function Descuento({ darkMode }) {
             <ChevronLeft className="cursor-pointer" />
           </button>
 
-          <div className="cursor-pointer flex overflow-hidden gap-4">
+          <div
+            {...swipeHandlers}
+            className="cursor-pointer flex overflow-hidden gap-4"
+          >
             {productosDesc.slice(startIndex, startIndex + 5).map((prod) => (
               <div
                 key={prod.id}
