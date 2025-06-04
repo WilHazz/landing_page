@@ -9,7 +9,7 @@ const productosDesc = [
     tipo: "Superior",
     imagen: "/images/discount/Camisa-Oversize.jpg",
     precioAntes: "$ 170,900",
-    precioActual: "$ 58,950",
+    precioActual: "$ 85,450",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const productosDesc = [
     tipo: "Inferior",
     imagen: "/images/discount/pantalon-Jogger.jpg",
     precioAntes: "$ 89,950",
-    precioActual: "$ 75,950",
+    precioActual: "$ 44,975",
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const productosDesc = [
     tipo: "Inferior",
     imagen: "/images/discount/Short-Deportivo.jpg",
     precioAntes: "$ 84,350",
-    precioActual: "$ 46,950",
+    precioActual: "$ 42,175",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const productosDesc = [
     tipo: "Superior",
     imagen: "/images/discount/Chaqueta-Cuero.jpg",
     precioAntes: "$ 240,250",
-    precioActual: "$ 130,950",
+    precioActual: "$ 120,125",
   },
   {
     id: 5,
@@ -41,7 +41,7 @@ const productosDesc = [
     tipo: "Superior",
     imagen: "/images/discount/pantalon-mujer.jpg",
     precioAntes: "$ 89,550",
-    precioActual: "$ 63,950",
+    precioActual: "$ 44,775",
   },
   {
     id: 6,
@@ -49,7 +49,7 @@ const productosDesc = [
     tipo: "Inferior",
     imagen: "/images/discount/Pantalon-hombre.jpg",
     precioAntes: "$ 90,950",
-    precioActual: "$ 50,950",
+    precioActual: "$ 45,475",
   },
   {
     id: 7,
@@ -57,7 +57,7 @@ const productosDesc = [
     tipo: "Superior",
     imagen: "/images/discount/Camisa-mujer.jpg",
     precioAntes: "$ 100,950",
-    precioActual: "$ 60,950",
+    precioActual: "$ 50,475",
   },
   {
     id: 8,
@@ -65,7 +65,7 @@ const productosDesc = [
     tipo: "Inferior",
     imagen: "/images/discount/pantalon-formal-hombre.jpg",
     precioAntes: "$ 90,950",
-    precioActual: "$ 60,950",
+    precioActual: "$ 45,475",
   },
   {
     id: 9,
@@ -73,7 +73,7 @@ const productosDesc = [
     tipo: "Superior",
     imagen: "/images/discount/Camisa-hombre-formal.jpg",
     precioAntes: "$ 75,950",
-    precioActual: "$ 50,950",
+    precioActual: "$ 37,975",
   },
   {
     id: 10,
@@ -81,7 +81,7 @@ const productosDesc = [
     tipo: "Superior",
     imagen: "/images/discount/Camisa-Gym-Hombre.jpg",
     precioAntes: "$ 75,950",
-    precioActual: "$ 50,950",
+    precioActual: "$ 37,975",
   },
   {
     id: 11,
@@ -89,7 +89,7 @@ const productosDesc = [
     tipo: "Inferior",
     imagen: "/images/discount/Short-Deportivo2.jpg",
     precioAntes: "$ 45,950",
-    precioActual: "$ 23,950",
+    precioActual: "$ 22,975",
   },
   {
     id: 12,
@@ -97,7 +97,7 @@ const productosDesc = [
     tipo: "Inferior",
     imagen: "/images/discount/short-jean-para-mujer.jpg",
     precioAntes: "$ 70,950",
-    precioActual: "$ 50,950",
+    precioActual: "$ 35,475",
   },
 ];
 
