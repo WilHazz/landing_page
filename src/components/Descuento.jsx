@@ -126,6 +126,7 @@ function useResponsiveCount() {
 export default function Descuento({ darkMode }) {
   const visibleCount = useResponsiveCount();
   const [startIndex, setStartIndex] = useState(0);
+  const [showTalla, setShowTalla] = useState({});
 
   const handleNext = () => {
     if (startIndex + visibleCount >= productosDesc.length) {
@@ -133,8 +134,6 @@ export default function Descuento({ darkMode }) {
     } else {
       setStartIndex(startIndex + 1);
     }
-
-    // setStartIndex((prev) => (prev + 1) % productosDesc.length);
   };
 
   const handlePrev = () => {
@@ -143,7 +142,6 @@ export default function Descuento({ darkMode }) {
     } else {
       setStartIndex(startIndex - 1);
     }
-    // setStartIndex((prev) => (prev === 0 ? productosDesc.length - 1 : prev - 1));
   };
 
   const getTallas = (tipo) => {
@@ -244,7 +242,54 @@ export default function Descuento({ darkMode }) {
                         {prod.precioActual}
                       </span>
                     </div>
-                    {/* Botones para Estilo Mobile */}
+                    {/* Botones para Modo Mobile */}
+                    <div className="sm:hidden mt-3 px-4 max-w-[300px] mx-auto flex flex-col items-center space-y-2">
+                      <div className="w-full">
+                        {/* Boton para mostrar las tallas */}
+                        <button
+                          onClick={() =>
+                            setShowTalla((prev) => ({
+                              ...prev,
+                              [prod.id]: !prev[prod.id],
+                            }))
+                          }
+                          className={`w-full px-4 py-2 text-center rounded-md font-semibold transition ${
+                            darkMode
+                              ? "bg-white text-black"
+                              : "bg-gray-800 text-white"
+                          }`}
+                        >
+                          Seleccionar Talla
+                        </button>
+
+                        {/* Lista de tallas si esta Visible */}
+                        {showTalla[prod.id] && (
+                          <div className="mt-3 flex flex-wrap justify-center gap-3">
+                            {getTallas(prod.tipo).map((talla, idx) => (
+                              <span
+                                key={idx}
+                                className={`px-3 py-1 rounded text-sm shadow ${
+                                  darkMode
+                                    ? "bg-white text-black"
+                                    : "bg-gray-800 text-white"
+                                }`}
+                              >
+                                {talla}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <button
+                        className={`px-4 py-1 rounded-md font-semibold transition w-full mt-[-2px] cursor-pointer ${
+                          darkMode
+                            ? "bg-white text-black"
+                            : "bg-gray-800 text-white"
+                        }`}
+                      >
+                        Añadir
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
