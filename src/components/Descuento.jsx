@@ -168,7 +168,7 @@ export default function Descuento({ darkMode }) {
         </h2>
 
         <div className="relative">
-          {/* Botones de navegación */}
+          {/* Botón Izquierda */}
           <button
             onClick={handlePrev}
             className="hidden sm:block absolute left-0 top-1/2 -translate-y-1/2 bg-black text-white p-2 rounded-full z-10 hover:bg-amber-600"
@@ -179,59 +179,61 @@ export default function Descuento({ darkMode }) {
           <div
             {...swipeHandlers}
             className={`cursor-pointer flex overflow-hidden gap-4 ${
-              visibleCount === 1 ? "justify-center" : " "
-            } `}
+              visibleCount === 1 ? "justify-center" : ""
+            }`}
           >
             {productosDesc
               .slice(startIndex, startIndex + visibleCount)
               .map((prod) => (
-                <div
-                  key={prod.id}
-                  className="relative w-[250px] sm:w-[300px] flex-shrink-0 group"
-                >
-                  <img
-                    src={prod.imagen}
-                    alt={prod.nombre}
-                    className="w-full h-[300px] sm:h-[400px] object-cover rounded-lg shadow"
-                  />
-                  <div className="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
-                    -50%
-                  </div>
+                <div key={prod.id} className="flex flex-col items-center">
+                  <div className="relative w-[250px] sm:w-[300px] flex-shrink-0 group">
+                    <img
+                      src={prod.imagen}
+                      alt={prod.nombre}
+                      className="w-full h-[300px] sm:h-[400px] object-cover rounded-lg shadow"
+                    />
+                    <div className="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">
+                      -50%
+                    </div>
 
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition flex items-end justify-center pointer-events-none">
-                    <div className="w-full px-4 pb-4 pointer-events-auto max-w-[200px]">
-                      <details className="w-full text-center">
-                        <summary
-                          className={`cursor-pointer hover:bg-amber-500 w-full px-3 py-1 rounded-t-full font-semibold ${
+                    {/* Hover para Desktop */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition flex items-end justify-center pointer-events-none sm:pointer-events-auto">
+                      <div className="w-full px-4 pb-4 pointer-events-auto max-w-[200px]">
+                        <details className="w-full text-center">
+                          <summary
+                            className={`cursor-pointer hover:bg-amber-500 w-full px-3 py-1 rounded-t-full font-semibold ${
+                              darkMode
+                                ? "bg-white text-black"
+                                : "bg-gray-800 text-white"
+                            }`}
+                          >
+                            Seleccionar talla
+                          </summary>
+                          <div className="mt-2 flex flex-wrap justify-center gap-2">
+                            {getTallas(prod.tipo).map((talla, idx) => (
+                              <span
+                                key={idx}
+                                className="bg-white text-black px-2 py-1 rounded text-sm shadow cursor-pointer hover:bg-amber-500"
+                              >
+                                {talla}
+                              </span>
+                            ))}
+                          </div>
+                        </details>
+                        <button
+                          className={`px-4 py-1 rounded-b-full font-semibold hover:bg-amber-500 transition w-full mt-[-2px] cursor-pointer ${
                             darkMode
                               ? "bg-white text-black"
                               : "bg-gray-800 text-white"
                           }`}
                         >
-                          Seleccionar talla
-                        </summary>
-                        <div className="mt-2 flex flex-wrap justify-center gap-2">
-                          {getTallas(prod.tipo).map((talla, idx) => (
-                            <span
-                              key={idx}
-                              className="bg-white text-black px-2 py-1 rounded text-sm shadow cursor-pointer hover:bg-amber-500"
-                            >
-                              {talla}
-                            </span>
-                          ))}
-                        </div>
-                      </details>
-                      <button
-                        className={`px-4 py-1 rounded-b-full font-semibold hover:bg-amber-500 transition w-full mt-[-2px] cursor-pointer ${
-                          darkMode
-                            ? "bg-white text-black"
-                            : "bg-gray-800 text-white"
-                        }`}
-                      >
-                        Añadir
-                      </button>
+                          Añadir
+                        </button>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Nombre y precio */}
                   <div className="mt-2 text-center">
                     <p className="font-semibold">{prod.nombre}</p>
                     <div className="flex items-center justify-center gap-2 mt-1">
@@ -242,59 +244,58 @@ export default function Descuento({ darkMode }) {
                         {prod.precioActual}
                       </span>
                     </div>
-                    {/* Botones para Modo Mobile */}
-                    <div className="sm:hidden mt-3 px-4 max-w-[300px] mx-auto flex flex-col items-center space-y-2">
-                      <div className="w-full">
-                        {/* Boton para mostrar las tallas */}
-                        <button
-                          onClick={() =>
-                            setShowTalla((prev) => ({
-                              ...prev,
-                              [prod.id]: !prev[prod.id],
-                            }))
-                          }
-                          className={`w-full px-4 py-2 text-center rounded-md font-semibold transition ${
-                            darkMode
-                              ? "bg-white text-black"
-                              : "bg-gray-800 text-white"
-                          }`}
-                        >
-                          Seleccionar Talla
-                        </button>
+                  </div>
 
-                        {/* Lista de tallas si esta Visible */}
-                        {showTalla[prod.id] && (
-                          <div className="mt-3 flex flex-wrap justify-center gap-3">
-                            {getTallas(prod.tipo).map((talla, idx) => (
-                              <span
-                                key={idx}
-                                className={`px-3 py-1 rounded text-sm shadow ${
-                                  darkMode
-                                    ? "bg-white text-black"
-                                    : "bg-gray-800 text-white"
-                                }`}
-                              >
-                                {talla}
-                              </span>
-                            ))}
-                          </div>
-                        )}
+                  {/*  Botones para Mobile fuera del group */}
+                  <div className="sm:hidden mt-3 px-4 max-w-[300px] w-full flex flex-col items-center space-y-2">
+                    <button
+                      onClick={() =>
+                        setShowTalla((prev) => ({
+                          ...prev,
+                          [prod.id]: !prev[prod.id],
+                        }))
+                      }
+                      className={`w-full px-4 py-2 text-center rounded-md font-semibold transition ${
+                        darkMode
+                          ? "bg-white text-black"
+                          : "bg-gray-800 text-white"
+                      }`}
+                    >
+                      Seleccionar Talla
+                    </button>
+
+                    {showTalla[prod.id] && (
+                      <div className="mt-3 flex flex-wrap justify-center gap-3">
+                        {getTallas(prod.tipo).map((talla, idx) => (
+                          <span
+                            key={idx}
+                            className={`px-3 py-1 rounded text-sm shadow ${
+                              darkMode
+                                ? "bg-white text-black"
+                                : "bg-gray-800 text-white"
+                            }`}
+                          >
+                            {talla}
+                          </span>
+                        ))}
                       </div>
-                      <button
-                        className={`px-4 py-1 rounded-md font-semibold transition w-full mt-[-2px] cursor-pointer ${
-                          darkMode
-                            ? "bg-white text-black"
-                            : "bg-gray-800 text-white"
-                        }`}
-                      >
-                        Añadir
-                      </button>
-                    </div>
+                    )}
+
+                    <button
+                      className={`px-4 py-1 rounded-md font-semibold transition w-full mt-[-2px] cursor-pointer ${
+                        darkMode
+                          ? "bg-white text-black"
+                          : "bg-gray-800 text-white"
+                      }`}
+                    >
+                      Añadir
+                    </button>
                   </div>
                 </div>
               ))}
           </div>
 
+          {/* Botón Derecha */}
           <button
             onClick={handleNext}
             className="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 bg-black text-white p-2 rounded-full z-10 hover:bg-amber-600"
