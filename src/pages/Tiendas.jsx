@@ -2,37 +2,37 @@ const tiendas = [
   {
     nombre: "ARKADIA",
     ciudad: "Medellín, Antioquia",
-    direccion: "Centro Comercial Arkadia, Carrera 70 # 1-141 Local 0397",
+    direccion: "Centro Comercial Arkadia, Local 0397",
     horario: "ABIERTO HASTA LAS 9 PM",
-    imagen: "/images/Tiendas/ArkadiaPort.png",
+    imagen: "/images/Tiendas/Arkadia.jpg",
   },
   {
     nombre: "PARQUE FLORIDA",
     ciudad: "Medellín, Antioquia",
     direccion: "Transversal 78 #65 -299 351",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/images/Tiendas/",
+    imagen: "/images/Tiendas/ParqueFlorida.jpg",
   },
   {
     nombre: "BELLO",
     ciudad: "Medellín, Antioquia",
     direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/images/Tiendas/bello.jpg",
+    imagen: "/images/Tiendas/Bello.jpg",
   },
   {
     nombre: "ARCANGEL",
     ciudad: "Medellín, Antioquia",
     direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/ruta/bello.jpg",
+    imagen: "/images/Tiendas/Arcangel.jpg",
   },
   {
-    nombre: "PARQUE LAS ALFOMBRAS",
+    nombre: "Marcus",
     ciudad: "Medellín, Antioquia",
-    direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
+    direccion: "Parque Las Alfombras Carrera 50",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/images/Tiendas/ArkadiaPort.png",
+    imagen: "/images/Tiendas/Arcangel.jpg",
   },
   {
     nombre: "BELLO",
@@ -78,12 +78,16 @@ export default function Tiendas({ darkMode }) {
             {tiendas.map((tienda, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-lg shadow-md flex cursor-pointer overflow-hidden"
+                className={`rounded-lg shadow-md flex w-full max-w-[700px] h-[200px] cursor-pointer overflow-hidden ${
+                  darkMode
+                    ? "bg-gray-700 text-white"
+                    : "bg-gray-100 text-gray-900"
+                }`}
               >
                 <img
                   src={tienda.imagen}
                   alt={tienda.nombre}
-                  className="w-1/2 object-cover"
+                  className="w-1/2 h-full object-cover"
                 />
                 <div className="p-4 w-1/2 flex flex-col justify-between">
                   <div>
