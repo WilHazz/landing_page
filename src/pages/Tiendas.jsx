@@ -32,7 +32,7 @@ const tiendas = [
     ciudad: "Medellín, Antioquia",
     direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/ruta/bello.jpg",
+    imagen: "/images/Tiendas/ArkadiaPort.png",
   },
   {
     nombre: "BELLO",
@@ -85,6 +85,18 @@ export default function Tiendas({ darkMode }) {
                   alt={tienda.nombre}
                   className="w-1/2 object-cover"
                 />
+                <div className="p-4 w-1/2 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold">{tienda.nombre}</h3>
+                    <p className="">{tienda.ciudad}</p>
+                    <p className="">{tienda.direccion}</p>
+                  </div>
+                  <div className="mt-4">
+                    <span className="inline-block border border-amber-500 text-amber-600 text-sm px-3 py-1 rounded">
+                      {tienda.horario}
+                    </span>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
