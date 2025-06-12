@@ -35,32 +35,32 @@ const tiendas = [
     imagen: "/images/Tiendas/Arcangel.jpg",
   },
   {
-    nombre: "BELLO",
+    nombre: "Poblado",
     ciudad: "Medellín, Antioquia",
     direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/ruta/bello.jpg",
+    imagen: "/images/Tiendas/poblado.jpg",
   },
   {
-    nombre: "BELLO",
+    nombre: "TMB",
     ciudad: "Medellín, Antioquia",
     direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/ruta/bello.jpg",
+    imagen: "/images/Tiendas/tmb.jpg",
   },
   {
-    nombre: "BELLO",
+    nombre: "Brey",
     ciudad: "Medellín, Antioquia",
     direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/ruta/bello.jpg",
+    imagen: "/images/Tiendas/Brey.jpg",
   },
   {
-    nombre: "BELLO",
+    nombre: "Calabasas",
     ciudad: "Medellín, Antioquia",
     direccion: "Carrera 50 # 38 A -261 Parque Fabricato",
     horario: "ABIERTO HASTA LAS 8 PM",
-    imagen: "/ruta/bello.jpg",
+    imagen: "/images/Tiendas/Calabasas.jpg",
   },
 ];
 
@@ -92,8 +92,8 @@ export default function Tiendas({ darkMode }) {
                 <div className="p-4 w-1/2 flex flex-col justify-between">
                   <div>
                     <h3 className="text-lg font-bold">{tienda.nombre}</h3>
-                    <p className="">{tienda.ciudad}</p>
-                    <p className="">{tienda.direccion}</p>
+                    <p className="text-sm">{tienda.ciudad}</p>
+                    <p className="text-sm">{tienda.direccion}</p>
                   </div>
                   <div className="mt-4">
                     <span className="inline-block border border-amber-500 text-amber-600 text-sm px-3 py-1 rounded">
