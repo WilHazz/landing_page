@@ -5,6 +5,10 @@ import Galeria from "./pages/Galeria";
 import Tiendas from "./pages/Tiendas";
 import Contacto from "./pages/Contacto";
 import Starwars from "./pages/Starwars";
+import Dragonballz from "./pages/Dragonballz";
+import Harrypotter from "./pages/Harrypotter";
+import Lonneytunes from "./pages/Lonneytunes";
+import Rickandmorty from "./pages/Rickandmorty";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import ScrollToTop from "./components/ScrollToTop";
@@ -42,6 +46,22 @@ function App() {
             <Route
               path="/personajes/starwars"
               element={<Starwars darkMode={darkMode} />}
+            />
+            <Route
+              path="/personajes/dragonballz"
+              element={<Dragonballz darkMode={darkMode} />}
+            />
+            <Route
+              path="/personajes/harrypotter"
+              element={<Harrypotter darkMode={darkMode} />}
+            />
+            <Route
+              path="/personajes/lonneytunes"
+              element={<Lonneytunes darkMode={darkMode} />}
+            />
+            <Route
+              path="/personajes/rickandmorty"
+              element={<Rickandmorty darkMode={darkMode} />}
             />
           </Routes>
         </Layout>
