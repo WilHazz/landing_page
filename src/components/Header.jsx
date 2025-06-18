@@ -1,6 +1,7 @@
 import { MenuIcon, Moon, ShoppingCart, SunMedium } from "lucide-react";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Header({ darkMode, setDarkMode }) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -107,7 +108,9 @@ export default function Header({ darkMode, setDarkMode }) {
         <div
           className={`logo text-sm ml-2 cursor-pointer hover:text-amber-500 ${darkMode} ? "text-white" : "text-gray-800"`}
         >
-          <span>Tu Ropa</span>
+          <Link to="/">
+            <span>Tu Ropa</span>
+          </Link>
         </div>
       </div>
 
