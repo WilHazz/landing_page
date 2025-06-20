@@ -5,7 +5,7 @@ const productsHP = [
     id: 1,
     nombre: "Camiseta Gryffindor",
     genero: "Hombre",
-    imagen: "/images/Product_harrp/camiseta-gryffindor.jpg",
+    imagen: "/images/Product_harryP/Camiseta-Gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
     tipo: "Superior",
@@ -14,7 +14,7 @@ const productsHP = [
     id: 2,
     nombre: "Camiseta Hogwarts Mujer",
     genero: "Mujer",
-    imagen: "/images/Product_harrp/camiseta-gryffindor.jpg",
+    imagen: "/images/Product_harryP/Camisa-Hogwarts.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
     tipo: "Superior",
@@ -23,16 +23,16 @@ const productsHP = [
     id: 3,
     nombre: "Camiseta Hogwarts Mujer",
     genero: "Mujer",
-    imagen: "/images/Product_harrp/camiseta-gryffindor.jpg",
+    imagen: "/images/Product_harryP/camiseta-gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
     tipo: "Superior",
   },
   {
     id: 4,
-    nombre: "Camiseta Hogwarts Mujer",
-    genero: "Mujer",
-    imagen: "/images/Product_harrp/camiseta-gryffindor.jpg",
+    nombre: "Chaqueta Gryffindor",
+    genero: "Hombre",
+    imagen: "/images/Product_harryP/Chaqueta-Gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
     tipo: "Superior",
@@ -41,7 +41,7 @@ const productsHP = [
     id: 5,
     nombre: "Camiseta Hogwarts Mujer",
     genero: "Mujer",
-    imagen: "/images/Product_harrp/camiseta-gryffindor.jpg",
+    imagen: "/images/Product_harryP/camiseta-gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
     tipo: "Superior",
@@ -50,7 +50,7 @@ const productsHP = [
     id: 6,
     nombre: "Camiseta Hogwarts Mujer",
     genero: "Mujer",
-    imagen: "/images/Product_harrp/camiseta-gryffindor.jpg",
+    imagen: "/images/Product_harryP/camiseta-gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
     tipo: "Superior",
@@ -153,6 +153,40 @@ export default function Harrypotter({ darkMode }) {
                 </span>
               </div>
               {/* Botones */}
+              <div className="mt-4 text-center">
+                <button
+                  onClick={() =>
+                    setShowTalla((prev) => ({
+                      ...prev,
+                      [prod.id]: !prev[prod.id],
+                    }))
+                  }
+                  className={`w-full px-4 py-2 rounded font-semibold transition cursor-pointer hover:bg-amber-500 ${
+                    darkMode ? "bg-white text-black" : "bg-gray-800 text-white"
+                  }`}
+                >
+                  Seleccionar Talla
+                </button>
+                {showTalla[prod.id] && (
+                  <div className="mt-3 flex flex-wrap justify-center gap-2">
+                    {tallas.map((talla, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-1 rounded bg-gray-200 text-black text-sm shadow cursor-pointer hover:bg-amber-500"
+                      >
+                        {talla}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <button
+                  className={`mt-2 w-full px-4 py-2 rounded font-semibold cursor-pointer hover:bg-amber-500 ${
+                    darkMode ? "bg-white text-black" : "bg-gray-800 text-white"
+                  }`}
+                >
+                  Añadir
+                </button>
+              </div>
             </div>
           ))}
         </div>
