@@ -8,7 +8,7 @@ const productsHP = [
     imagen: "/images/Product_harryP/Camiseta-Gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
-    tipo: "Superior",
+    tallasDisponibles: ["S", "M", "L"],
   },
   {
     id: 2,
@@ -17,16 +17,16 @@ const productsHP = [
     imagen: "/images/Product_harryP/Camisa-Hogwarts.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
-    tipo: "Superior",
+    tallasDisponibles: ["S", "M", "L"],
   },
   {
     id: 3,
     nombre: "Camiseta Hogwarts Mujer",
-    genero: "Mujer",
-    imagen: "/images/Product_harryP/camiseta-gryffindor.jpg",
+    genero: "Hombre",
+    imagen: "/images/Product_harryP/Camiseta-Gryffindor-2.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
-    tipo: "Superior",
+    tallasDisponibles: ["S", "M", "L"],
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const productsHP = [
     imagen: "/images/Product_harryP/Chaqueta-Gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
-    tipo: "Superior",
+    tallasDisponibles: ["S", "M", "L"],
   },
   {
     id: 5,
@@ -44,7 +44,7 @@ const productsHP = [
     imagen: "/images/Product_harryP/camiseta-gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
-    tipo: "Superior",
+    tallasDisponibles: ["S", "M"],
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ const productsHP = [
     imagen: "/images/Product_harryP/camiseta-gryffindor.jpg",
     precioAntes: "$ 89,000",
     precioActual: "$ 69,000",
-    tipo: "Superior",
+    tallasDisponibles: ["XS", "M", "XL"],
   },
 ];
 
@@ -62,10 +62,29 @@ const tallas = ["XS", "S", "M", "L", "XL"];
 export default function Harrypotter({ darkMode }) {
   const [filtroGenero, setFiltroGenero] = useState("");
   const [showTalla, setShowTalla] = useState({});
+  const [setselectedTallas, setSetselectedTallas] = useState({});
+  const [tallaSeleccionada, setTallaSeleccionada] = useState("");
 
-  const productosFiltados = productsHP.filter(
-    (p) => !filtroGenero || p.genero === filtroGenero
-  );
+  const productosFiltrados = productsHP.filter((producto) => {
+    if (filtroGenero && producto.genero !== filtroGenero) return false;
+    if (
+      tallaSeleccionada &&
+      !producto.tallasDisponibles.includes(tallaSeleccionada)
+    )
+      return false;
+    return true;
+  });
+
+  const handleSeleccionarTalla = (id, talla) => {
+    setSetselectedTallas((prev) => ({
+      ...prev,
+      [id]: talla,
+    }));
+  };
+
+  const handleSeleccionarFiltroTalla = (talla) => {
+    setTallaSeleccionada((prev) => (prev === talla ? "" : talla));
+  };
 
   return (
     <section
@@ -120,9 +139,16 @@ export default function Harrypotter({ darkMode }) {
               {tallas.map((t) => (
                 <span
                   key={t}
-                  className={`px-2 py-1 rounded border text-sm cursor-pointer hover:bg-amber-500 ${
-                    darkMode ? "border-white" : "border-gray-800"
-                  }`}
+                  onClick={() => handleSeleccionarFiltroTalla(t)}
+                  className={`px-3 py-1 rounded text-sm cursor-pointer transition-transform transform duration-200 border shadow
+                  ${
+                    tallaSeleccionada === t
+                      ? "bg-amber-500 scale-110 text-white border-amber-500"
+                      : darkMode
+                      ? "bg-transparent text-white border-white hover:bg-amber-500"
+                      : "bg-transparent text-gray-800 border-gray-800 hover:bg-amber-500"
+                  }
+                `}
                 >
                   {t}
                 </span>
@@ -133,7 +159,7 @@ export default function Harrypotter({ darkMode }) {
 
         {/* Productos */}
         <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {productosFiltados.map((prod) => (
+          {productosFiltrados.map((prod) => (
             <div
               key={prod.id}
               className="border rounded-lg p-4 shadow hover:shadow-lg transition cursor-pointer"
@@ -172,7 +198,15 @@ export default function Harrypotter({ darkMode }) {
                     {tallas.map((talla, idx) => (
                       <span
                         key={idx}
-                        className="px-2 py-1 rounded bg-gray-200 text-black text-sm shadow cursor-pointer hover:bg-amber-500"
+                        onClick={() => handleSeleccionarTalla(prod.id, talla)}
+                        className={`px-3 py-1 rounded text-sm cursor-pointer transition-transform transform duration-200 border shadow hover:bg-amber-500
+                           ${
+                             setselectedTallas[prod.id] === talla
+                               ? "bg-amber-500 scale-110 text-white border-amber-500"
+                               : darkMode
+                               ? "bg-transparent text-white border-white"
+                               : "bg-transparent text-gray-800 border-gray-800"
+                           }}`}
                       >
                         {talla}
                       </span>
