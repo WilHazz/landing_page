@@ -34,7 +34,7 @@ export default function Header({ darkMode, setDarkMode }) {
           <nav className="hidden sm:flex space-x-6 text-white text-1xl">
             {[
               { to: "/", label: "Inicio" },
-              { to: "/galeria", label: "Galeria" },
+              { to: "/nuevo", label: "Nuevo" },
               { to: "/tiendas", label: "Tiendas" },
               { to: "/contacto", label: "Contacto" },
             ].map((link) => (

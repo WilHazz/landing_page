@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./layout/Layout";
-import Galeria from "./pages/Galeria";
+import Nuevo from "./pages/Nuevo";
 import Tiendas from "./pages/Tiendas";
 import Contacto from "./pages/Contacto";
 import Starwars from "./pages/Starwars";
@@ -36,7 +36,7 @@ function App() {
           <Routes>
             {/* Aqui creamos las rutas*/}
             <Route path="/" element={<Home darkMode={darkMode} />} />
-            <Route path="/galeria" element={<Galeria darkMode={darkMode} />} />
+            <Route path="/nuevo" element={<Nuevo darkMode={darkMode} />} />
             <Route path="/tiendas" element={<Tiendas darkMode={darkMode} />} />
             <Route
               path="/contacto"
