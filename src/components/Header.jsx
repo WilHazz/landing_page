@@ -148,7 +148,7 @@ export default function Header({ darkMode, setDarkMode }) {
         >
           {[
             { to: "/", label: "Inicio" },
-            { to: "/galeria", label: "Galería" },
+            { to: "/nuevo", label: "Nuevo" },
             { to: "/tiendas", label: "Tiendas" },
             { to: "/contacto", label: "Contacto" },
           ].map((link) => (

@@ -138,6 +138,7 @@ export default function Harrypotter({ darkMode }) {
             <label htmlFor="" className="block">
               <input
                 type="checkbox"
+                className="accent-amber-400"
                 name="genero"
                 onChange={() => setFiltroGenero("")}
               />
@@ -146,6 +147,7 @@ export default function Harrypotter({ darkMode }) {
             <label className="block">
               <input
                 type="checkbox"
+                className="accent-amber-400"
                 name="genero"
                 onChange={() => setFiltroGenero("Mujer")}
               />
@@ -154,6 +156,7 @@ export default function Harrypotter({ darkMode }) {
             <label className="block">
               <input
                 type="checkbox"
+                className="accent-amber-400"
                 name="genero"
                 onChange={() => setFiltroGenero("Hombre")}
               />

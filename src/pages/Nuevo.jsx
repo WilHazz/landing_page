@@ -109,7 +109,7 @@ export default function Nuevo({ darkMode }) {
             )}
           </div>
 
-          {/* Manga */}
+          {/* Manga  - Usamos el accent para que cambie de color el checkbox */}
 
           <div>
             <div
@@ -123,8 +123,7 @@ export default function Nuevo({ darkMode }) {
               <div className="mt-2 space-y-1">
                 {mangas.map((m) => (
                   <label key={m} className="flex items-center ">
-                    <input type="checkbox" className="mr-2 accent-amber-400" />{" "}
-                    //uso el accent para que cambie de color el checkbox
+                    <input type="checkbox" className="mr-2 accent-amber-400" />
                     {m}
                   </label>
                 ))}
